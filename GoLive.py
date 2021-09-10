@@ -1,3 +1,4 @@
+from discord import message
 import requests
 import os
 import discord
@@ -29,7 +30,7 @@ def create_message(channel_info, stream_info, game_info):
 async def send_message(embed):
     channel_id = os.getenv('discord_channel_id')
     channel = discord_client.get_channel(int(channel_id))
-    await channel.send(embed=embed)
+    await channel.send('Hey everyone, Blondieepanda, is now live on https://www.twitch.tv/blondieepanda! Go check out how bamboosted she is!', embed=embed)
 
 
 @discord_client.event
