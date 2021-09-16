@@ -87,10 +87,8 @@ def query_game(twitch_headers, game_id):
         'https://api.twitch.tv/helix/games?id=' + game_id, headers=twitch_headers,)
     json = URL_GET.json()
     channel_box_art = json['data'][0]['box_art_url']
-    print (channel_box_art)
     channel_box_art = re.sub('\{.*\}', '288x384', channel_box_art)
     channel_box_art = channel_box_art.replace('./', '')
-    print (channel_box_art)
     return {
         'channel_box_art': channel_box_art
     }
