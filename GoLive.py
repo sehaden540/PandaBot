@@ -3,6 +3,7 @@ import requests
 import os
 import discord
 import re
+import random
 
 discord_client = discord.Client()
 channel_info = {}
@@ -74,6 +75,11 @@ def query_stream(twitch_headers):
     channel_game = json['data'][0]['game_name']
     thumbnail_url = json['data'][0]['thumbnail_url']
     thumbnail_url = re.sub('\{.*\}', '1920x1080', thumbnail_url)
+
+    # Randomize image size to get around Dicords image link caching
+    thumbnail_url = thumbnail_url.replace("1920", str(random.randint(1918, 1922)))
+    thumbnail_url = thumbnail_url.replace("1080", str(random.randint(1078, 1082)))
+
     return {
         'stream_title': stream_title,
         'channel_game_id': channel_game_id,
