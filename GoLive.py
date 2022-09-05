@@ -5,7 +5,9 @@ import discord
 import re
 import random
 
-discord_client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+discord_client = discord.Client(intents=intents)
 channel_info = {}
 stream_info = {}
 game_info = {}
