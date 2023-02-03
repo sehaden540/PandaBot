@@ -71,7 +71,7 @@ def query_channel(twitch_headers):
 
 def query_stream(twitch_headers):
     URL_GET = requests.get(
-        'https://api.twitch.tv/helix/streams?user_login=Cen7ipede', headers=twitch_headers)
+        'https://api.twitch.tv/helix/streams?user_login=blondieepanda', headers=twitch_headers)
     json = URL_GET.json()
     stream_title = json['data'][0]['title']
     channel_game_id = json['data'][0]['game_id']
