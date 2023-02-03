@@ -33,7 +33,8 @@ def create_message(channel_info, stream_info, game_info):
 async def send_message(embed):
     channel_id = os.getenv('discord_channel_id')
     channel = discord_client.get_channel(int(channel_id))
-    await channel.send('Hey everyone, Blondieepanda, is now live on https://www.twitch.tv/blondieepanda! Go check out how bamboosted she is!', embed=embed)
+    channel_role = os.getenv('discord_role_PandastreamPing_id')
+    await channel.send(F'<@&{channel_role}> Hey everyone, Blondieepanda, is now live on https://www.twitch.tv/blondieepanda! Go check out how bamboosted she is!', embed=embed)
 
 
 @discord_client.event
@@ -70,7 +71,7 @@ def query_channel(twitch_headers):
 
 def query_stream(twitch_headers):
     URL_GET = requests.get(
-        'https://api.twitch.tv/helix/streams?user_login=blondieepanda', headers=twitch_headers)
+        'https://api.twitch.tv/helix/streams?user_login=Cen7ipede', headers=twitch_headers)
     json = URL_GET.json()
     stream_title = json['data'][0]['title']
     channel_game_id = json['data'][0]['game_id']
