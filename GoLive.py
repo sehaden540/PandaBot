@@ -34,7 +34,7 @@ async def send_message(embed):
     channel_id = os.getenv('discord_channel_id')
     channel = discord_client.get_channel(int(channel_id))
     channel_role = os.getenv('discord_role_PandastreamPing_id')
-    await channel.send(F'<@&{channel_role}> Hey everyone, Blondieepanda, is now live on https://www.twitch.tv/blondieepanda! Go check out how bamboosted she is!', embed=embed)
+    await channel.send(F'<@&{channel_role}> Hey everyone, Blondieepanda, is now live on https://www.twitch.tv/blondieepanda ! Go check out how bamboosted she is!', embed=embed)
 
 
 @discord_client.event
